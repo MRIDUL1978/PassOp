@@ -101,4 +101,5 @@ If deploying this project, ensure that:
 
 ## 👨‍💻 Author
 Mridul Shaily
-GitHub: @MRIDUL1978
+
+email: mridulshaily1978@gmail.com
