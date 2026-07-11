@@ -99,6 +99,6 @@ If deploying this project, ensure that:
 
 3. A vercel.json file is included in the frontend to handle React Router page refreshes correctly.
 
-👨‍💻 Author
+## 👨‍💻 Author
 Mridul Shaily
 GitHub: @MRIDUL1978
