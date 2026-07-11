@@ -35,7 +35,7 @@ const DisplayDataSection = ({
           </h2>
         )}
         <div className="space-y-4">
-          {passwordsList.map((item, index) => {
+          {passwordsList.map((item) => {
             return (
               <div
                 key={item.id}

@@ -10,7 +10,6 @@ const cors = require("cors");
 
 const app = express();
 
-// 1. CRITICAL FOR RENDER DEPLOYMENT
 // Tells Express to trust the proxy (Render) so cookies work securely
 app.set("trust proxy", 1); 
 
@@ -28,11 +27,10 @@ const store = new MongoDBStore({
 
 app.use(express.urlencoded({ extended: false }));
 
-// 2. DYNAMIC CORS ORIGIN
-// Allows both localhost (for testing) and your Vercel app
+// Allows both localhost (for testing) and Vercel
 const allowedOrigins = [
   "http://localhost:5173", 
-  process.env.FRONTEND_URL // We will set this var in Render
+  process.env.FRONTEND_URL 
 ];
 
 app.use(
@@ -54,15 +52,14 @@ app.use(express.json());
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "My-secret-key", // Read from env
+    secret: process.env.SESSION_SECRET || "My-secret-key", 
     resave: false,
     saveUninitialized: false,
     store: store,
-    // 3. SECURE COOKIE SETTINGS FOR CROSS-DOMAIN (Vercel <-> Render)
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // true on Render
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // 'none' on Render
-        maxAge: 1000 * 60 * 60 * 24 // 1 day
+        secure: process.env.NODE_ENV === 'production', 
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', 
+        maxAge: 1000 * 60 * 60 * 24 
     }
   })
 );
@@ -70,7 +67,7 @@ app.use(
 app.use("/api/passwordList", passwordListRouter);
 app.use("/api/auth", authRouter);
 
-// 4. USE PROCESS.ENV.PORT
+
 const PORT = process.env.PORT || 3000;
 
 mongoose

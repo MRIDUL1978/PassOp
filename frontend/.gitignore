@@ -1,3 +1,7 @@
+#do not push 
+.env
+
+
 # Logs
 logs
 *.log
