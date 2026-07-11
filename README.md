@@ -45,5 +45,60 @@ To run this project locally, you will need Node.js and a MongoDB database (local
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/MRIDUL1978/MERN-PROJECTS.git](https://github.com/MRIDUL1978/MERN-PROJECTS.git)
+git clone https://github.com/MRIDUL1978/MERN-PROJECTS.git
 cd MERN-PROJECTS
+```
+
+### 2. Backend Setup
+```bash
+cd Backend
+npm install
+```
+
+Create a .env file in the Backend directory and add the following variables:
+```bash
+# Your MongoDB connection string (Make sure to specify the DB name, e.g., /PassOp)
+DB_PATH=mongodb+srv://<username>:<password>@cluster.mongodb.net/PassOp?appName=Cluster0
+# Secret key for session signing and encryption
+SECRET_KEY=your_super_secret_key_here
+# Port for the local server
+PORT=10000
+# URL of your local frontend
+FRONTEND_URL=http://localhost:5173
+```
+
+Start the backend server:
+```bash
+node server.js
+```
+
+### 3. Frontent Setup
+Open a new terminal window:
+```bash
+cd Frontend
+npm install
+```
+
+Create a .env file in the Frontend directory:
+```bash
+# URL of your local backend
+VITE_API_URL=http://localhost:10000
+```
+
+Start the React development server:
+```bash
+npm run dev
+```
+
+🌐 Deployment Note
+If deploying this project, ensure that:
+
+1. Your backend CORS configuration allows your exact production frontend URL.
+
+2. The FRONTEND_URL environment variable on your backend matches the deployed frontend URL without a trailing slash.
+
+3. A vercel.json file is included in the frontend to handle React Router page refreshes correctly.
+
+👨‍💻 Author
+Mridul Shaily
+GitHub: @MRIDUL1978
