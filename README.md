@@ -45,8 +45,7 @@ To run this project locally, you will need Node.js and a MongoDB database (local
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/MRIDUL1978/MERN-PROJECTS.git
-cd MERN-PROJECTS
+git clone https://github.com/MRIDUL1978/PassOp.git
 ```
 
 ### 2. Backend Setup
